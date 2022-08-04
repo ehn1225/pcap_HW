@@ -131,7 +131,7 @@ int main(int argc, char* argv[]) {
 		printf("================== TCP ===================\n");
         	printf("Source Port     : %d\n", ntohs(tcp_hdr->th_sport));
         	printf("Destnation Port : %d\n", ntohs(tcp_hdr->th_dport));
-		const char * payload = (u_char *)(packet + SIZE_ETHERNET + size_ip + size_tcp);
+		const u_char * payload = (u_char *)(packet + SIZE_ETHERNET + size_ip + size_tcp);
 		u_int payload_size = ntohs(ip_hdr->ip_len) - size_ip - size_tcp;
 		if(payload_size > 10){payload_size = 10;}
 		if(payload_size == 0){
