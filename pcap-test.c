@@ -134,9 +134,16 @@ int main(int argc, char* argv[]) {
 		const char * payload = (u_char *)(packet + SIZE_ETHERNET + size_ip + size_tcp);
 		u_int payload_size = ntohs(ip_hdr->ip_len) - size_ip - size_tcp;
 		if(payload_size > 10){payload_size = 10;}
-		for(int i =0; i < payload_size;i++){
-			printf("%02x ", payload[i]);
-		}	
+		if(payload_size == 0){
+                        printf("No Data");
+                }
+                else{
+                        for(int i =0; i < payload_size;i++){
+                                printf("%02x ", payload[i]);
+                        }
+
+
+                }	
 		printf("\n============= End Of Packet ==============\n\n\n");
 
 			
